@@ -34,15 +34,20 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
 
-      # 6. بناء الـ APK
-      - name: Setup Gradle and Build
+      # 6. إعداد جرادل (بدون وسائط)
+      - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.10.2
-          arguments: clean assembleDebug --no-daemon --stacktrace
-          build-root-directory: android
 
-      # 7. استخراج الملف النهائي
+      # 7. تشغيل عملية بناء الـ APK (الطريقة الصحيحة الجديدة)
+      - name: Build APK with Gradle Wrapper
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon --stacktrace
+
+      # 8. استخراج الملف النهائي
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
