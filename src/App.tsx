@@ -1,20 +1,20 @@
-import { useState } from 'react'
 import './App.css'
 
 function App() {
   return (
     <div className="mushaf-container">
       <header>
+        <div className="ornament">﴿﴾</div>
         <h1>مصحف العلاء</h1>
         <p>بوابتك للقراءة والاستماع</p>
       </header>
 
       <main>
-        <div className="card">
-          <button>📖 قراءة القرآن الكريم</button>
-          <button>🎧 الاستماع للمقرئين</button>
-          <button>📍 اتجاه القبلة</button>
-          <button>📿 أذكار المسلم</button>
+        <div className="card-grid">
+          <button className="main-btn">📖 قراءة القرآن الكريم</button>
+          <button className="main-btn">🎧 الاستماع للمقرئين</button>
+          <button className="main-btn">📍 اتجاه القبلة</button>
+          <button className="main-btn">📿 أذكار المسلم</button>
         </div>
       </main>
 
